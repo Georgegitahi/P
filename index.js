@@ -48,7 +48,7 @@ fetch("https://p-1-ie0q.onrender.com/carsData")
      card.innerHTML=`
 
 
-
+    <h1>Post Car </h>
     <img src ="${car.imageURL}">
      <div class="flex justify-between my-5">
      <i onClick="deleteCar(${car.id})"class="fa fa-trash" aria-hidden="true"></i>
