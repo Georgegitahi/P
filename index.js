@@ -101,35 +101,37 @@ function editCar(id) {
             //displayCar
             console.log(res);
 
-            const update_container=document.getElementById("update_container")
+            const updateContainer=document.getElementById("updateContainer")
 
-            update_container.innerHTML=`
+            updateContainer.innerHTML=`
 
             
             <h4>update car posted</h4>
-      <form  class="max-w-md mx-auto">
-      <label for="name">name</label>
-      <input type="text" value="${res.name}"id="name" name="name" required>
-      <label for="name">model</label>
-      <input type="text" value="${res.model}"id="Model" name="Model" required>
-      <label for="name" > image URL</label>
-      <input type="text" value="${res.imageURL}" id="image-url" name="image-url" required>
+            <div>
+      
+    
+      <input type="text" value="${res.name}" placeholder="Enter name">
+      
+      <input type="text" value="${res.model}"placeholder="Enter model">
+     
+      <input type="text" value="${res.imageURL}" placeholder="Enter imageURL">
       
       
-      <label for="description">Description</label>
-      <input type="text" value"${res.Description}" id="Description" name="Description" ></input>
-      <label for="name">Price</label>
-      <input type="text" value"${res.price}"id="price" name="price">
+     
+      <input type="text" value"${res.Description}" placeholder="Enter Description" >
+    
+      <input type="text" value"${res.price}" placeholder="Enter price">
       
-      <button onClick="updateCar(${id})" type="submit">Submit Changes </button>
-    </form>
+      <button onClick="update(${id})" type="submit">Submit Changes </button>
+      </div>
+    
     `
 })
 }
                 //update car
                function  update(id){
-                    document.getElementById("car_form").addEventListener("submit" ,(event)=>{
-                    event.preventDefault()
+                     //document.getElementById("car_form").addEventListener("submit" ,(event)=>{
+                     //event.preventDefault()
                     const update_name =  document.getElementById("update_name").value;
                     const update_model =  document.getElementById("update_model").value;
                     const update_imageURL =  document.getElementById("update_image-url").value;
@@ -145,7 +147,7 @@ function editCar(id) {
                               name:update_name,
                               model:update_model,
                               imageURL:update_imageURL,
-                              description:update_description,
+                              Description:update_Description,
                               price:update_price
                 
                          }),
@@ -165,8 +167,8 @@ function editCar(id) {
                
                   
           
-       })
-     }
+       }
+     
 
 
 
@@ -191,7 +193,7 @@ function deleteCar(id)
           
      }
 })
- console.log(  );
+ console.log( id );
 
 
  // display single blog
@@ -203,7 +205,8 @@ function displaySingleBlog(id)
     .then((response)=> response.json())
     .then((data)=> {
         const single_blog = document.getElementById("single_blog")
-        single_blog.innerHTML = `<div>
+        single_blog.innerHTML = `
+        <div>
         <img src="${data.imageURL}"
         <h6>${data.name}</h6>
         <p>${data.description}</p>
@@ -241,15 +244,16 @@ function displaySingleBlog(id)
 
 }
 // Add Car
-document.getElementById("car_form").addEventListener("submit" ,(event)=>{
-     event.preventDefault()
-     const name =  document.getElementById("name").value
-     const model =  document.getElementById("model").value
-     const imageURL =  document.getElementById("image-url").value
-     const Description =  document.getElementById("Description").value
+      const addcarform=document.getElementById("addcarform")
+      carform.addEventListener("submit" ,function(event){
+     event.preventDefault();
+     const name =  document.getElementById("name").value;
+     const model =  document.getElementById("model").value;
+     const imageURL =  document.getElementById("image-url").value;
+     const Description =  document.getElementById("Description").value;
      const price =  document.getElementById("price").value
     
-     console.log(name,model,imageURL,Description,price,);
+     // console.log(name,model,imageURL,Description,price,);
      fetch("https://p-1-ie0q.onrender.com/carsData",{
           method:"POST",
           headers:{"content-Type":"application/JSON"},
@@ -260,20 +264,24 @@ document.getElementById("car_form").addEventListener("submit" ,(event)=>{
                Description:Description,
                price:price
 
-          })
+          }),
+
+          headers: {
+               "Content-Type": "application/json",
+          }
      })
-.then(data => data.json())
-.then(res => {
-     for (const car of res) {
-          renderOneCar(car)
+.then(data => response.json())
+.then(data => {
+     // for (const car of res) {
+     //      renderOneCar(car)
           
-     }
+     // }
      alert("post added successfully")
 })
- console.log(  );
+ console.log( name," ",model," ",imageURL," ",Description," ",price);
 
 
-} )
+})
 
 
 

@@ -68,7 +68,7 @@
   <h1 class="text-2xl font-bold mt-8 text-center" >Welcome To The Store </h1>
   </header> 
   <div class="container max-w-screen-xl">
-    <form id="car_form" class="max-w-md mx-auto" >
+    <form id="carform" class="max-w-md mx-auto" >
       <label for="name">name</label>
       <input type="text" id="name" name="name" required>
       <label for="name">model</label>
@@ -79,21 +79,22 @@
       
       
       <label for="description">Description</label>
-      <input type="text" id="Description" name="Description" ></input>
+      <input type="text" id="Description" name="Description" required></input>
       <label for="name">Price</label>
-      <input type="text" id="price" name="price" >
+      <input type="text" id="price" name="price" required >
       
       <button type="submit">POST CAR</button>
     </form>
      <ul id="car_data" class="cards">
     
      </ul>
-  </div>
+ 
   
  
-  <div id="update_container">
+  <div id="updateContainer">
  <!-- update form  -->
   </div>
+</div>
  
     
     <div id="container" class="text-danger">
