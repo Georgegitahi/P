@@ -104,24 +104,13 @@ function editCar(id) {
             const updateContainer=document.getElementById("updateContainer")
 
             updateContainer.innerHTML=`
-
-            
-            <h4>update car posted</h4>
+            <h4>update Form</h4>
             <div>
-      
-    
-      <input type="text" value="${res.name}" placeholder="Enter name">
-      
-      <input type="text" value="${res.model}"placeholder="Enter model">
-     
-      <input type="text" value="${res.imageURL}" placeholder="Enter imageURL">
-      
-      
-     
-      <input type="text" value"${res.Description}" placeholder="Enter Description" >
-    
-      <input type="text" value"${res.price}" placeholder="Enter price">
-      
+      <input type="text" id="update_name"value="${res.name}" placeholder="Enter name">
+      <input type="text" id="update_model"value="${res.model}"placeholder="Enter model">
+      <input type="text" id="update_imageURL"value="${res.imageURL}" placeholder="Enter imageURL">
+      <input type="text" id="update_Description"value"${res.Description}" placeholder="Enter Description" >
+      <input type="text" id="update_price"value"${res.price}" placeholder="Enter price">
       <button onClick="update(${id})" type="submit">Submit Changes </button>
       </div>
     
@@ -134,8 +123,8 @@ function editCar(id) {
                      //event.preventDefault()
                     const update_name =  document.getElementById("update_name").value;
                     const update_model =  document.getElementById("update_model").value;
-                    const update_imageURL =  document.getElementById("update_image-url").value;
-                    const update_description =  document.getElementById("update_Description").value;
+                    const update_imageURL =  document.getElementById("update_imageURL").value;
+                    const update_Description =  document.getElementById("update_Description").value;
                     const update_price =  document.getElementById("update_price").value;
                
                     //console.log(name,model,imageURL,description,price);
@@ -210,7 +199,7 @@ function displaySingleBlog(id)
         <img src="${data.imageURL}"
         <h6>${data.name}</h6>
         <p>${data.description}</p>
-        $<span class="car-price">${data.price}</span>
+        <p>${data.price}</p>
         <p>${data.model}</p>
 
       </div>`
