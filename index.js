@@ -121,29 +121,15 @@ function editCar(id) {
       <label for="name">Price</label>
       <input type="text" value"${res.price}"id="price" name="price">
       
-      <button onClick="update_post(${id})" type="submit">Submit Changes </button>
+      <button onClick="updateCar(${id})" type="submit">Submit Changes </button>
     </form>
-            
-            
-            
-            
-            
-            
-            
-            `
-
-          })
-
-
-     }
-          
-             //update car
-
-             function  update(id){
-
- 
-               // document.getElementById("car_form").addEventListener("submit" ,(event)=>{
-               //      event.preventDefault()
+    `
+})
+}
+                //update car
+               function  update(id){
+                    document.getElementById("car_form").addEventListener("submit" ,(event)=>{
+                    event.preventDefault()
                     const update_name =  document.getElementById("update_name").value;
                     const update_model =  document.getElementById("update_model").value;
                     const update_imageURL =  document.getElementById("update_image-url").value;
@@ -179,7 +165,12 @@ function editCar(id) {
                
                   
           
-      }
+       })
+     }
+
+
+
+
       
 
              
@@ -253,7 +244,7 @@ function displaySingleBlog(id)
 document.getElementById("car_form").addEventListener("submit" ,(event)=>{
      event.preventDefault()
      const name =  document.getElementById("name").value
-     const model =  document.getElementById("Model").value
+     const model =  document.getElementById("model").value
      const imageURL =  document.getElementById("image-url").value
      const Description =  document.getElementById("Description").value
      const price =  document.getElementById("price").value
@@ -264,7 +255,7 @@ document.getElementById("car_form").addEventListener("submit" ,(event)=>{
           headers:{"content-Type":"application/JSON"},
           body:JSON.stringify({
                name:name,
-               Model:Model,
+               model:model,
                imageURL:imageURL,
                Description:Description,
                price:price
