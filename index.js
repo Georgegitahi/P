@@ -1,4 +1,4 @@
-fetch("http://localhost:3000/carsData")
+fetch("https://p-1-ie0q.onrender.com/carsData")
 .then(data => data.json())
 .then(res => {
      for (const car of res) {
@@ -94,7 +94,7 @@ fetch("http://localhost:3000/carsData")
 
 //update function
 function editCar(id) {
-     fetch(`http://localhost:3000/carsData/${id}`)
+     fetch(`https://p-1-ie0q.onrender.com/carsData/${id}`)
          .then((response) => response.json())
          //.then(car => {
           .then((res)=>{
@@ -152,7 +152,7 @@ function editCar(id) {
                
                     //console.log(name,model,imageURL,description,price);
                     //const id =("update_container")
-                    fetch(`http://localhost:3000/carsData${id}`,{
+                    fetch(`https://p-1-ie0q.onrender.com/carsData/${id}`,{
                          method:"PATCH",
                          //headers:{"content-Type":"application/JSON"},
                          body:JSON.stringify({
@@ -190,7 +190,7 @@ function editCar(id) {
 // delete function
 function deleteCar(id)
 {
-     fetch(`http://localhost:3000/carsData/${id}`,{
+     fetch(`https://p-1-ie0q.onrender.com/carsData/${id}`,{
           method:"DELETE"
      })
      .then(data => data.json())
@@ -206,7 +206,7 @@ function deleteCar(id)
  // display single blog
 function displaySingleBlog(id)
 {
-    fetch(`https://blog-javascript-p0ff.onrender.com/blogs/${id}`, {
+    fetch(`https://p-1-ie0q.onrender.com/carsData/${id}`, {
     method:"GET"
     })
     .then((response)=> response.json())
@@ -259,7 +259,7 @@ document.getElementById("car_form").addEventListener("submit" ,(event)=>{
      const price =  document.getElementById("price").value
     
      console.log(name,model,imageURL,Description,price,);
-     fetch("http://localhost:3000/carsData",{
+     fetch("https://p-1-ie0q.onrender.com/carsData",{
           method:"POST",
           headers:{"content-Type":"application/JSON"},
           body:JSON.stringify({
